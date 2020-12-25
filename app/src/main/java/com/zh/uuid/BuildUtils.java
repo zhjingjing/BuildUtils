@@ -1,7 +1,9 @@
 package com.zh.uuid;
 
 import android.content.Context;
+import android.os.Build;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.util.Log;
 
 /**
@@ -17,6 +19,32 @@ public class BuildUtils {
         return android.os.Build.VERSION.RELEASE;
     }
 
+    public static String getId(){
+        return Build.ID;
+    }
+
+    public static String  getProduct(){
+        return Build.PRODUCT;
+    }
+
+    public static String  getDevice(){
+        return Build.DEVICE;
+    }
+    public static String  getBoard(){
+        return Build.BOARD;
+    }
+
+    public static String  getBrand(){
+        return Build.BRAND;
+    }
+
+    public static String  getBootLoader(){
+        return Build.BOOTLOADER;
+    }
+
+    public static String  getHardware(){
+        return Build.HARDWARE;
+    }
     /**
      * @return e.g. G521-L076 or (HUAWEI G521-L076)
      */
@@ -50,4 +78,22 @@ public class BuildUtils {
             return "android_id_unknown";
         }
     }
+
+    public static String getSN() {
+        String val = null;
+        if (26 <= Build.VERSION.SDK_INT) {
+            try {
+                val = Build.getSerial();
+            } catch (Throwable ignore) {
+            }
+        }
+        if (TextUtils.isEmpty(val)) {
+            try {
+                val = Build.SERIAL;
+            } catch (Throwable ignore) {
+            }
+        }
+        return TextUtils.isEmpty(val) ? Build.UNKNOWN : val;
+    }
+
 }
