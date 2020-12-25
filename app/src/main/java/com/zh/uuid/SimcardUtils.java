@@ -20,6 +20,8 @@ import java.util.Map;
  * @Time 2020/12/25 0025 11:40
  * @Email: zhaohang@zhizhangyi.com
  * @Describe:
+ *
+ * 这里获取不到的可以通过设置deviceOwner获取到
  */
 public class SimcardUtils {
 

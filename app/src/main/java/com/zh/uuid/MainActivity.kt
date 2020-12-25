@@ -17,7 +17,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        tvTest.text = getMyUUID()
         stringBuffer.append(getMyUUID()).append("\n CPUABI:" + BuildUtils.getCPUABI())
             .append("\n getId:" + BuildUtils.getId())
             .append("\n getProduct:" + BuildUtils.getProduct())
@@ -39,7 +38,11 @@ class MainActivity : AppCompatActivity() {
             .append("\n getBTMacAddress: " + HardwareUtils.getBluetoothAddress())
             .append("\n getDeviceIdFromTelephony: " + SimcardUtils.getDeviceIdFromTelephony(this))
             .append("\n getDeviceId2FromTelephony: " + SimcardUtils.getDeviceId2FromTelephony(this))
-            .append("\n getDeviceId2FromTelephony: " + SimcardUtils.getDeviceId2FromTelephony(this))
+            .append("\n getLine1Number: " + TelephoneUtils.getLine1Number(this))
+            .append("\n checkRootMethod1: " + RootUtils.checkRootMethod1())
+            .append("\n getOsModel: " + RootUtils.getOsModel(this))
+            .append("\n isTablet: " + RootUtils.isTablet(this))
+        tvTest.text = getMyUUID()
 
         tvTest.text = stringBuffer.toString()
     }
